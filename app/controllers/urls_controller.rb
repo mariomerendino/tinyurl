@@ -1,13 +1,19 @@
 class UrlsController < ApplicationController
   def index
+    render 'index'
   end
 
   def create
-    Url.create!(
-      key: SecureRandom.hex(10),
+    url = Url.create!(
+      key: params[:requested_path],
       real_link: params[:real_link],
       num_hits: 0,
     )
+
+    @flash = {}
+    @flash[:message] = "Your shortended URL is #{request.base_url}/url/#{url.key}"
+
+    render 'index'
   end
 
   def show
