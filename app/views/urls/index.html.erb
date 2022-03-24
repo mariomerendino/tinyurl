@@ -1,7 +1,7 @@
 <h2>URL page</h2>
 
 <%= form_with method: :post do |form| %>
-  <%= form.label :real_link, "Generate a short URL for: " %>
+  <%= form.label :real_link, "Generate a short URL for (NOTE: MUST INCLUDE HTTPS://) " %>
   <%= form.text_field :real_link %>
   <br />
   <%= form.label :requested_path, "Path you want this shortened to: "%>
